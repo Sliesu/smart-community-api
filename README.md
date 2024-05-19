@@ -66,9 +66,11 @@ main
 │       ├── convert - 数据转换类
 │       ├── enums - 定义枚举类型
 │       ├── mappermodel - ORM映射模型
-│       ├── dto - 数据传输对象
-│       ├── entityquery - 实体查询相关类
-│       ├── vo - 视图对象
+│       ├── model - 数据模型层
+│       │   ├── dto - 数据传输对象
+│       │   ├── entity - 实体类
+│       │   ├── query - 查询类
+│       │   └── vo - 视图对象
 │       └── service - 服务层，包含业务逻辑
 │           └── impl - 服务层实现类
 │       └── utils - 实用工具类
