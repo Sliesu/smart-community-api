@@ -1,0 +1,97 @@
+server:
+  # 系统运行端口
+  port: 8080
+
+servlet:
+  # 上下文路径前缀
+  context-path: /api-demo
+
+spring:
+  application:
+    # 应用名称
+    name: api-demo
+  profiles:
+    # 运行环境
+    active: dev
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      # 上传文件大小限定为10M
+      max-file-size: 10485760
+      max-request-size: 10485760
+# 数据持久层框架配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  # 实体类包路径，可自行修改
+  type-aliases-package: cn.edu.njuit.api.model.entity
+  configuration:
+    # 字段名允许驼峰
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    # 日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 逻辑删除配置
+      logic-delete-field: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 系统日志输出配置
+logging:
+  # 配置文件位置
+  config: classpath:log/logback-spring.xml
+
+# springdoc-openapi 配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+    group-configs:
+      - group: 'default'
+        paths-to-match: '/**'
+    # 扫描 controller 包的路径，自行修改
+    packages-to-scan: cn.edu.njuit.api.controller
+
+# knife4j 配置
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+  basic:
+    enable: true
+    username: admin
+    password: 123456
+
+# 自定义配置，需要校验的 URL 前缀
+auth:
+  valid_urls:
+    - /auth/logout
+    - /user/**
+
+# 阿里云 OSS 的配置
+aliyun:
+  oss:
+    # oss 对外服务的访问域名
+    endpoint: endpoint
+    # 访问身份验证中用到用户标识
+    accessKeyId: accessKeyId
+    # 用户用于加密签名字符串和 oss 用来验证签名字符串的密钥
+    accessKeySecret: accessKeySecret
+    # oss 的存储空间名
+    bucketName: bucketName
+
+# 第三方短信服务配置，根据项目需要修改成自己的前缀
+message:
+  sms:
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSId: accountSId
+      accountToken: accountToken
+      appId: appId
