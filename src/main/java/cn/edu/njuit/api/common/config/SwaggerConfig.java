@@ -15,7 +15,7 @@ public class SwaggerConfig {
         return new OpenAPI().info(
                 new Info()
                         .title("api demo")
-                        .contact(new Contact().name("mqxu").email("mqxu.@gmail.com"))
+                        .contact(new Contact().name("ytq").email("3361345583@qq.com"))
                         .version("1.0")
                         .description("api demo 接口文档")
                         .license(new License().name("Apache 2.0").url("http://doc.xiaominfo.com"))

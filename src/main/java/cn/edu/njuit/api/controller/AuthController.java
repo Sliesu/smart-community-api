@@ -2,11 +2,13 @@ package cn.edu.njuit.api.controller;
 
 import cn.edu.njuit.api.common.result.Result;
 import cn.edu.njuit.api.service.AuthService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 
+@Tag(name = "登录服务")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

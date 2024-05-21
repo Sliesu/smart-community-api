@@ -15,8 +15,8 @@ public class PermitResource {
 
     static {
         // 在这里添加需要被校验的 URL
-        VALID_URLS.add("/example/url1");
-        VALID_URLS.add("/example/url2");
+        VALID_URLS.add("/auth/logout");
+        VALID_URLS.add("/user/**");
     }
 
     /**
